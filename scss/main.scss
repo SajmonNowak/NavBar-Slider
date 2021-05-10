@@ -1,0 +1,259 @@
+$gold: #d4af37;
+
+.navbar {
+  --dropDisplay: none;
+  display: flex;
+  width: 100%;
+  height: 75px;
+  font-size: 20px;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+  font-family: "Roboto";
+
+  ul {
+    display: flex;
+    align-items: center;
+    color: black;
+
+    li {
+      padding-left: 30px;
+      width: 120px;
+      text-align: center;
+      position: relative;
+      &:hover {
+        color: $gold;
+      }
+    }
+  }
+
+  #dropDownButton {
+    &:hover {
+      --dropDisplay: block !important;
+    }
+
+    i {
+      padding-right: 5px;
+    }
+  }
+
+  #dropDownMenu {
+    background-color: white;
+    position: absolute;
+    display: var(--dropDisplay) !important;
+    z-index: 10;
+    padding-bottom: 20px;
+
+    li {
+      padding: 20px;
+      height: 40px;
+      text-align: left;
+    }
+
+    .firstDropItem {
+      margin-top: 20px;
+      border-top: 2px solid $gold;
+    }
+
+    &:hover {
+      --dropDisplay: block !important;
+    }
+  }
+
+  button {
+    height: 50px;
+    width: 100px;
+    color: white;
+    font-weight: bold;
+    background-color: $gold;
+    border: none;
+    border-radius: 0.3rem;
+    margin-right: 20px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+#menuIcon {
+  display: none;
+}
+
+#mobileNav {
+  display: none;
+}
+
+@media screen and (max-width: 620px) {
+  #menuIcon {
+    position: fixed;
+    right: 0px;
+    display: block;
+    cursor: pointer;
+    float: right;
+    margin: 20px;
+    z-index: 101;
+
+    .bar1,
+    .bar2,
+    .bar3 {
+      width: 35px;
+      height: 5px;
+      background-color: #333;
+      margin: 6px 0;
+      transition: 0.4s;
+    }
+  }
+
+  #desktopNav {
+    display: none;
+  }
+
+  #mobileNavContainer {
+    display: none;
+    align-items: center;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 100;
+  }
+
+  #mobileNav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+    color: white;
+    z-index: 2;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      font-size: 20px;
+      height: 50%;
+    }
+
+    ul li:hover {
+      color: gold;
+    }
+  }
+}
+
+.change {
+  .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+  .bar2 {
+    opacity: 0;
+  }
+
+  .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px);
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+}
+
+// Slider
+
+.sliderDiv {
+  width: 100vw;
+  height: 500px;
+  position: relative;
+
+  .imageDiv {
+    height: 100%;
+    display: none;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.showImage {
+  display: block !important;
+}
+
+.dotDiv {
+  text-align: center;
+  padding-top: 15px;
+
+  .dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+
+    &:hover {
+      background-color: #717171;
+    }
+  }
+}
+
+.activeDot {
+  background-color: #717171 !important;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+      integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div id="menuIcon">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+      <div id="mobileNavContainer">
+        <nav id="mobileNav">
+          <ul>
+            <li>Home</li>
+            <li>Products</li>
+            <li>Services</li>
+            <li>Team</li>
+            <li>Pricing</li>
+            <li>Contact</li>
+          </ul>
+        </nav>
+      </div>
+      <nav id="desktopNav" class="navBar">
+        <ul>
+          <li>Home</li>
+          <li id="dropDownButton">
+            <i class="fas fa-caret-down"></i>
+            About
+            <ul id="dropDownMenu">
+              <li class="firstDropItem">Products</li>
+              <li>Services</li>
+              <li>Team</li>
+            </ul>
+          </li>
+          <li>Pricing</li>
+        </ul>
+        <button>Contact</button>
+      </nav>
+    </header>
+    <div class="sliderDiv">
+      <div class="imageDiv fade" id="img1">
+        <img src="images/pexels-pixabay-147411.jpg" />
+      </div>
+      <div class="imageDiv fade" id="img2">
+        <img src="images/pexels-pixabay-414171 (1).jpg" />
+      </div>
+      <div class="imageDiv fade" id="img3">
+        <img src="images/pexels-pixabay-462162.jpg" />
+      </div>
+      <!-- Next and previous buttons -->
+      <a class="prev" id="prevButton">&#10094;</a>
+      <a class="next" id="nextButton">&#10095;</a>
+      <!-- The dots/circles -->
+      <div class="dotDiv">
+        <span class="dot" id="dot1"></span>
+        <span class="dot" id="dot2"></span>
+        <span class="dot" id="dot3"></span>
+      </div>
+    </div>
+  </body>
+  <script src="main.js"></script>
+</html>
