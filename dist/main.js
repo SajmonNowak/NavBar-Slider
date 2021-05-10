@@ -1,6 +1,7 @@
 const hamburgerIcon = document.getElementById("menuIcon");
 const mobileNav = document.getElementById("mobileNavContainer");
 let counter = 1;
+let rotateInt = null;
 
 const NavBar = {
   changeIcon() {
@@ -19,6 +20,7 @@ const NavBar = {
 const Slider = {
   start() {
     Slider.showImg(counter);
+    Slider.startRotate();
     Slider.initialiseButtons();
   },
 
@@ -31,26 +33,30 @@ const Slider = {
 
     nextBtn.addEventListener("click", () => {
       Slider.nextSlide();
+      Slider.restartRotate();
     });
     prevBtn.addEventListener("click", () => {
       Slider.prevSlide();
+      Slider.restartRotate();
     });
     dot1.addEventListener("click", () => {
       counter = 1;
       Slider.showImg(counter);
+      Slider.restartRotate();
     });
     dot2.addEventListener("click", () => {
       counter = 2;
       Slider.showImg(counter);
+      Slider.restartRotate();
     });
     dot3.addEventListener("click", () => {
       counter = 3;
       Slider.showImg(counter);
+      Slider.restartRotate();
     });
   },
 
   showImg(imgNumber) {
-    let img = "";
     const imgs = document.querySelectorAll(".imageDiv");
     imgs.forEach((element) => element.classList.remove("showImage"));
 
@@ -69,13 +75,13 @@ const Slider = {
         break;
     }
     img.classList.add("showImage");
-    setTimeout(Slider.nextSlide, 5000);
   },
   nextSlide() {
     counter++;
     if (counter > 3) {
       counter = 1;
     }
+
     Slider.showImg(counter);
   },
   prevSlide() {
@@ -99,6 +105,18 @@ const Slider = {
       case 3:
         dots[2].classList.add("activeDot");
         break;
+    }
+  },
+  startRotate() {
+    if (!rotateInt) {
+      rotateInt = setInterval(Slider.nextSlide, 5000);
+    }
+  },
+  restartRotate() {
+    if (rotateInt) {
+      clearInterval(rotateInt);
+      rotateInt = null;
+      Slider.startRotate();
     }
   },
 };
